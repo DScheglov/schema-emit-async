@@ -1,0 +1,34 @@
+{
+  "name": "schema-emit-async",
+  "version": "0.1.0",
+  "description": "Patch for events.EventEmitter and Mongoose.Schema and Mongoose.Document that allows emit events and handle them by functions with callbacks ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DScheglov/schema-emit-async.git"
+  },
+  "keywords": [
+    "EventEmitter",
+    "Async",
+    "Mongoose",
+    "Schema",
+    "Documents",
+    "on",
+    "emit",
+    "emitAsync",
+    "onAsync"
+  ],
+  "author": "Dmitry Scheglov <Dmitry.Scheglov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DScheglov/schema-emit-async/issues"
+  },
+  "homepage": "https://github.com/DScheglov/schema-emit-async#readme",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "mongoose": "4.4.10"
+  }
+}
