@@ -22,9 +22,12 @@ npm test
 Description
 ==================
 The patch adds the following methods:
+
 1. [**events.EventEmitter.prototype.emitAsync**](#EE.eA) - emits event and calls callback after all handlers processed
+
 2. [**mongoose.Document.prototype.emitAsync**](#mD.eA) - duck-style inheritance of EventEmitter.eventAsync -- allows to emit event and pass one or more params to the handlers
-3. [**mongoose.Schema.prototype.onAsync**](#ms.oA) -- adds handler as function with callback that binds to the Documents emitted the event
+
+3. [**mongoose.Schema.prototype.onAsync**](#mS.oA) -- adds handler as function with callback that binds to the Documents emitted the event
 
 -----------
 ### EventEmitter#emitAsync(event, ..., callback) <a name="EE.eA"></a>
