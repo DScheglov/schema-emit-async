@@ -1,6 +1,6 @@
 {
   "name": "schema-emit-async",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Patch for events.EventEmitter and Mongoose.Schema and Mongoose.Document that allows emit events and handle them by functions with callbacks ",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,8 @@
   "devDependencies": {
     "mocha": "^2.4.5",
     "mongoose": "4.4.10"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.3"
   }
 }
