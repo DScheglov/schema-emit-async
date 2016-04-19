@@ -6,7 +6,7 @@ var Vector2DSchema = new Schema({
   y: Number
 });
 
-Vector2DSchema.onAsync("parent-event", function(next) {
+Vector2DSchema.when("parent-event", function(next) {
   next(null, "Vector2D processed the parent-event");
 });
 
@@ -60,7 +60,7 @@ var Vector3DSchema = new Schema({
   z: Number
 });
 
-Vector3DSchema.onAsync('parent-event', function(next) {
+Vector3DSchema.when('parent-event', function(next) {
   next(null, "Vector3D processed the parent-event")
 })
 

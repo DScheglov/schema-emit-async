@@ -22,7 +22,7 @@ describe('Event emitted by mongoose.Document', function () {
   it('with 0 params should be handled with no params', function() {
     var okMessage = 'no params passed to the event handler';
     var handlerCalled = false;
-    db.Vector2DSchema.onAsync('event', function(next) {
+    db.Vector2DSchema.when('event', function(next) {
       assert.ok(this instanceof db.Vector2D);
       assert.ok(next);
       assert.ok(next instanceof Function);
@@ -44,7 +44,7 @@ describe('Event emitted by mongoose.Document', function () {
   it('with 1 param should be handled with 1 param', function() {
     var okMessage = '1 param passed to the event handler';
     var param1 = "param1";
-    db.Vector2DSchema.onAsync('event', function(_param1, next) {
+    db.Vector2DSchema.when('event', function(_param1, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(next);
@@ -66,7 +66,7 @@ describe('Event emitted by mongoose.Document', function () {
     var okMessage = '2 params passed to the event handler';
     var param1 = "param1";
     var param2 = "param2";
-    db.Vector2DSchema.onAsync('event', function(_param1, _param2, next) {
+    db.Vector2DSchema.when('event', function(_param1, _param2, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(_param2);
@@ -91,7 +91,7 @@ describe('Event emitted by mongoose.Document', function () {
     var param1 = "param1";
     var param2 = "param2";
     var param3 = "param3";
-    db.Vector2DSchema.onAsync('event', function(_param1, _param2, _param3, next) {
+    db.Vector2DSchema.when('event', function(_param1, _param2, _param3, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(_param2);
@@ -119,7 +119,7 @@ describe('Event emitted by mongoose.Document', function () {
     var param2 = "param2";
     var param3 = "param3";
     var param4 = "param4";
-    db.Vector2DSchema.onAsync('event', function(_param1, _param2, _param3, _param4, next) {
+    db.Vector2DSchema.when('event', function(_param1, _param2, _param3, _param4, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(_param2);
@@ -150,7 +150,7 @@ describe('Event emitted by mongoose.Document', function () {
     var param3 = "param3";
     var param4 = "param4";
     var param5 = "param5";
-    db.Vector2DSchema.onAsync('event', function(_param1, _param2, _param3, _param4, _param5, next) {
+    db.Vector2DSchema.when('event', function(_param1, _param2, _param3, _param4, _param5, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(_param2);
@@ -184,7 +184,7 @@ describe('Event emitted by mongoose.Document', function () {
     var param4 = "param4";
     var param5 = "param5";
     var param6 = "param6";
-    db.Vector2DSchema.onAsync('event', function(_param1, _param2, _param3, _param4, _param5, _param6, next) {
+    db.Vector2DSchema.when('event', function(_param1, _param2, _param3, _param4, _param5, _param6, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(_param2);
@@ -224,7 +224,7 @@ describe('Event emitted by mongoose.Document', function () {
     var param8 = "param8";
     var param9 = "param9";
     var paramA = "paramA";
-    db.Vector2DSchema.onAsync('event', function(_param1, _param2, _param3, _param4, _param5, _param6, _param7, _param8, _param9, _paramA, next) {
+    db.Vector2DSchema.when('event', function(_param1, _param2, _param3, _param4, _param5, _param6, _param7, _param8, _param9, _paramA, next) {
       assert.ok(_param1);
       assert.equal(_param1, param1);
       assert.ok(_param2);
@@ -263,7 +263,7 @@ describe('Event emitted by mongoose.Document', function () {
   it('should be handled with 1 param - handler has no specified params', function() {
     var okMessage = '1 param passed to the event handler';
     var param1 = "param1";
-    db.Vector2DSchema.onAsync('event', function() {
+    db.Vector2DSchema.when('event', function() {
       assert.equal(arguments.length, 2);
       var _param1 = arguments[0];
       var next = arguments[1];
@@ -287,7 +287,7 @@ describe('Event emitted by mongoose.Document', function () {
     var okMessage1 = 'handler1 processed';
     var okMessage2 = "handler2 processed";
     var param1 = "param1";
-    db.Vector2DSchema.onAsync('event', function() {
+    db.Vector2DSchema.when('event', function() {
       assert.equal(arguments.length, 2);
       var _param1 = arguments[0];
       var next = arguments[1];
@@ -298,7 +298,7 @@ describe('Event emitted by mongoose.Document', function () {
       next(null, okMessage1);
     });
 
-    db.Vector2DSchema.onAsync('event', function() {
+    db.Vector2DSchema.when('event', function() {
       assert.equal(arguments.length, 2);
       var _param1 = arguments[0];
       var next = arguments[1];
@@ -330,7 +330,7 @@ describe('Event emitted by mongoose.Document', function () {
 
   it('should be handled with exception passed to the callback', function() {
     var errMessage = 'Sone error message';
-    db.Vector2DSchema.onAsync('event', function(next) {
+    db.Vector2DSchema.when('event', function(next) {
       next(new Error(errMessage));
     });
 
@@ -347,7 +347,7 @@ describe('Event emitted by mongoose.Document', function () {
   it('inside an inherited method should be handle by instance of child Shema', function() {
     var okMessage = 'handler processed';
 
-    db.Vector3DSchema.onAsync('event', function(next) {
+    db.Vector3DSchema.when('event', function(next) {
       assert(this instanceof db.Vector3D);
       next(null, okMessage);
     });

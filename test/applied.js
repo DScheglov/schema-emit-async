@@ -17,8 +17,8 @@ describe("events.EventEmitter", function () {
 
 describe("mongoose.Schema", function() {
 
-  it("should have the =onAsync= method", function () {
-    var method = Schema.prototype.onAsync;
+  it("should have the =when= method", function () {
+    var method = Schema.prototype.when;
     assert.ok(method);
     assert.ok(method instanceof Function);
   })
