@@ -26,10 +26,11 @@ The patch adds the following methods:
 
 2. [**mongoose.Document.prototype.emitAsync**](#mD.eA) - duck-style inheritance of EventEmitter.eventAsync -- allows to emit event and pass one or more params to the handlers
 
-3. [**mongoose.Schema.prototype.onAsync**](#mS.oA) -- adds handler as function with callback that binds to the Documents emitted the event
+3. [**mongoose.Schema.prototype.when**](#mS.oA) -- adds handler as function with callback that binds to the Documents emitted the event
 
 -----------
-#### EventEmitter#emitAsync(event, ..., callback) <a name="EE.eA"></a>
+<a name="EE.eA"></a>
+#### EventEmitter#emitAsync(event, ..., callback)
 
 Emits the event specified by `event` parameter and calls the `callback` function after all handlers processed
 
@@ -117,7 +118,8 @@ Error: no errors
 Results: "The second handler processed."
 ```
 ----------------------
-### Document#emitAsync() <a name="mD.eA"></a>
+<a name="mD.eA"></a>
+### Document#emitAsync()
 
 Document.prototype.emitAsync - the wrapper method of EventEmitter that
 is attached to the mongoose.Document
@@ -125,10 +127,11 @@ is attached to the mongoose.Document
 see: [EventEmitter#emitAsync](#EE.eA)
 
 ------------------
-### Schema#when(event, fn) <a name="mS.oA"></a>
+<a name="mS.oA"></a>
+### Schema#when(event, fn)
 
 Schema.prototype.when - adds the asynchronious handler for event and binds the handler to the first arguments passed in emitAsync call.
-The difference between Schema.prototype.on and Schema.prototype.when is method on attaches the handler to the Schema that is an instanceof EventEmitter, instead of method when adds listener to the internal EventEmitter of the Document instance. 
+The difference between Schema.prototype.on and Schema.prototype.when is method on attaches the handler to the Schema that is an instanceof EventEmitter, instead of method when adds listener to the internal EventEmitter of the Document instance.
 
 **Parameters**:
 
