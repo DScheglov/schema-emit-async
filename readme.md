@@ -127,7 +127,8 @@ see: [EventEmitter#emitAsync](#EE.eA)
 ------------------
 ### Schema#when(event, fn) <a name="mS.oA"></a>
 
-Schema.prototype.onAsync - adds the asynchronious handler for event
+Schema.prototype.when - adds the asynchronious handler for event and binds the handler to the first arguments passed in emitAsync call.
+The difference between Schema.prototype.on and Schema.prototype.when is method on attaches the handler to the Schema that is an instanceof EventEmitter, instead of method when adds listener to the internal EventEmitter of the Document instance. 
 
 **Parameters**:
 
